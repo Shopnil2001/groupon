@@ -1,0 +1,178 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { Factory, Zap, Scissors, Printer, Box, Ruler, Hammer } from 'lucide-react';
+
+export default function Capabilities() {
+  const machines = [
+    {
+      name: "Drawstring",
+      machines: "12 Set Auto",
+      capacity: "10,000",
+      unit: "yards/day",
+      icon: Factory,
+      color: "#00C853"
+    },
+    {
+      name: "Elastic Draw Cord",
+      machines: "10 Set",
+      capacity: "3,000",
+      unit: "yards/day",
+      icon: Zap,
+      color: "#00C853"
+    },
+    {
+      name: "Plain Elastic",
+      machines: "02 Set",
+      capacity: "6,000",
+      unit: "yards/day",
+      icon: Scissors,
+      color: "#00C853"
+    },
+    {
+      name: "Poly & Printing",
+      machines: "01 Set",
+      capacity: "40,000",
+      unit: "pcs/day",
+      icon: Printer,
+      color: "#00C853"
+    },
+    {
+      name: "Digital Fabrics Printing",
+      machines: "02 Set",
+      capacity: "High Volume",
+      unit: "pcs/day",
+      icon: Printer,
+      color: "#00C853"
+    },
+    {
+      name: "Carton",
+      machines: "Full 01 Set",
+      capacity: "5,000",
+      unit: "pcs/day",
+      icon: Box,
+      color: "#00C853"
+    },
+    {
+      name: "Gum Tape",
+      machines: "Sourcing",
+      capacity: "5,000",
+      unit: "rolls/day",
+      icon: Ruler,
+      color: "#00C853"
+    },
+    {
+      name: "Metal Accessories",
+      machines: "04 Set",
+      capacity: "Custom",
+      unit: "production",
+      icon: Hammer,
+      color: "#00C853"
+    }
+  ];
+
+  return (
+    <section id="capabilities" className="relative py-24 bg-[#f8fafd] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="text-center mb-16">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block px-6 py-2 bg-[#00C853]/10 text-[#00C853] text-sm font-semibold tracking-widest rounded-full mb-4"
+          >
+            PRODUCTION POWER
+          </motion.span>
+          <h2 className="text-6xl md:text-7xl font-black text-[#0A3D62] tracking-tighter">
+            FACTORY CAPABILITIES
+          </h2>
+          <p className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
+            State-of-the-art machinery delivering unmatched daily capacity with 100% commitment to quality
+          </p>
+        </div>
+
+        {/* Interactive Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {machines.map((machine, index) => {
+            const Icon = machine.icon;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.07 }}
+                whileHover={{
+                  y: -16,
+                  scale: 1.04,
+                  transition: { type: "spring", stiffness: 400, damping: 18 }
+                }}
+                className="group bg-white rounded-3xl p-8 border border-gray-100 hover:border-[#00C853] shadow-sm hover:shadow-2xl relative overflow-hidden flex flex-col"
+              >
+                {/* Icon Container */}
+                <div className="flex justify-between items-start mb-8">
+                  <motion.div
+                    whileHover={{ rotate: 12, scale: 1.15 }}
+                    className="w-16 h-16 bg-[#00C853]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#00C853] transition-all duration-500"
+                  >
+                    <Icon className="w-9 h-9 text-[#00C853] group-hover:text-white transition-colors" />
+                  </motion.div>
+                  
+                  {/* Capacity Number - Big & Animated */}
+                  <div className="text-right">
+                    <motion.div
+                      initial={{ scale: 0.6 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      className="text-5xl font-black text-[#0A3D62] tracking-tighter group-hover:text-[#00C853] transition-colors"
+                    >
+                      {machine.capacity}
+                    </motion.div>
+                    <div className="text-xs font-medium text-gray-500 tracking-widest -mt-1">
+                      {machine.unit}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Machine Name */}
+                <h3 className="text-2xl font-semibold text-[#0A3D62] mb-2 group-hover:text-[#00C853] transition-colors">
+                  {machine.name}
+                </h3>
+
+                {/* Machines Count */}
+                <div className="text-sm font-medium text-gray-500 mb-auto">
+                  {machine.machines} Machines
+                </div>
+
+                {/* Animated Bottom Bar */}
+                <div className="h-1.5 bg-gradient-to-r from-[#00C853] to-transparent w-0 group-hover:w-full mt-8 transition-all duration-700 rounded-full" />
+                
+                {/* Subtle hover shine */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Trust Bar */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center text-sm text-gray-500 flex items-center justify-center gap-8 flex-wrap"
+        >
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-[#00C853] rounded-full animate-pulse" /> 
+            100% In-House Production
+          </div>
+          <div>•</div>
+          <div>Daily Output: Over 70,000+ units</div>
+          <div>•</div>
+          <div>Modern Chinese & Local Machinery</div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
