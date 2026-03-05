@@ -13,43 +13,43 @@ export default function Products() {
   const products = [
     {
       id: 1,
-      src: '/p1.JPEG',
+      src: '/p1.jpeg',
       name: 'Digital Fabric Printing',
       desc: 'High-precision Epson industrial printer'
     },
     {
       id: 2,
-      src: '/p3.JPEG',
+      src: '/p3.jpeg',
       name: 'Gum Tape Rolls',
       desc: 'Premium packaging tape'
     },
     {
       id: 3,
-      src: '/p4.JPEG',
+      src: '/p4.jpeg',
       name: 'Colored Elastics & Webbing',
       desc: 'Vibrant draw cords & elastics'
     },
     {
       id: 4,
-      src: '/p5.JPEG',
+      src: '/p5.jpeg',
       name: 'Poly & Protective Sheets',
       desc: 'High-quality plastic packaging'
     },
     {
       id: 5,
-      src: '/p6.JPEG',
+      src: '/p6.jpeg',
       name: 'Cord Locks & Adjusters',
       desc: 'Black & colored plastic toggles'
     },
     {
       id: 6,
-      src: '/p7.JPEG',
+      src: '/p7.jpeg',
       name: 'Multi-color Cord Locks',
       desc: 'Vibrant range of toggles'
     },
     {
       id: 7,
-      src: '/p8.JPEG',
+      src: '/p8.jpeg',
       name: 'Heavy-Duty Buckles',
       desc: 'Durable plastic buckles'
     }
@@ -59,25 +59,25 @@ export default function Products() {
   const factoryImages = [
     {
       id: 1,
-      src: '/f1.JPEG',
+      src: '/f1.jpeg',
       name: 'Factory Exterior',
       desc: 'Modern production facility in Demra, Dhaka'
     },
     {
       id: 2,
-      src: '/f2.JPEG',
+      src: '/f2.jpeg',
       name: 'Textile Machine',
       desc: 'High-speed yarn & elastic production'
     },
     {
       id: 3,
-      src: '/f3.JPEG',
+      src: '/f3.jpeg',
       name: 'GrouponBD Facility',
       desc: 'Our dedicated manufacturing plant'
     },
     {
       id: 4,
-      src: '/f4.JPEG',
+      src: '/f4.jpeg',
       name: 'Draw Cord Machine',
       desc: 'Automated drawstring & elastic line'
     }

@@ -19,7 +19,7 @@ export default function Hero({ setQuoteOpen }) {
             className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A3D62]"
         >
             {/* Background Image (add your best factory photo here) */}
-            <div className="absolute inset-0 bg-[url('/Hero.PNG')] bg-cover bg-center opacity-40" />
+            <div className="absolute inset-0 bg-[url('/Hero.png')] bg-cover bg-center opacity-40" />
 
             {/* Subtle grid overlay */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:60px_60px]" />

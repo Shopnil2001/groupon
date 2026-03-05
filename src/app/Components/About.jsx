@@ -114,7 +114,7 @@ export default function About() {
           >
             <div className="relative w-full max-w-[520px] aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-white/60 bg-white">
               <Image
-                src="/About.PNG"
+                src="/About.png"
                 alt="GrouponBD Team - Dedicated professionals"
                 fill
                 className="object-cover"
