@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 export default function Hero({ setQuoteOpen }) {
-    console.log('Navbar received setQuoteOpen?', typeof setQuoteOpen === 'function');
+    
     const services = [
         { text: 'Drawstring', color: '#00C853' },
         { text: 'Elastic Cords', color: '#00C853' },

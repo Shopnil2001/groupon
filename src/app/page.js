@@ -26,7 +26,7 @@ export default function Home() {
       <Contact />
 
       {/* Quote Modal */}
-      <QuoteModal isOpen={quoteOpen} onClose={() => setQuoteOpen(false)} />
+      <QuoteModal isOpen={quoteOpen} onClose={() => setQuoteOpen(false)} ></QuoteModal>
     </div>
   );
 }
