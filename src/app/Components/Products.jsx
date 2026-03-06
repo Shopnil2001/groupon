@@ -86,40 +86,43 @@ export default function Products() {
   const currentImages = activeTab === 'products' ? products : factoryImages;
 
   return (
-    <section id="products" className="relative py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="products" className="relative py-16 sm:py-20 lg:py-24 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 sm:mb-16">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-6 py-2 bg-[#00C853]/10 text-[#00C853] text-sm font-semibold tracking-widest rounded-full mb-4"
+            className="inline-block px-4 sm:px-6 py-2 bg-[#00C853]/10 text-[#00C853] text-sm font-semibold tracking-widest rounded-full mb-4"
           >
             VISUAL SHOWCASE
           </motion.span>
-          <h2 className="text-6xl md:text-7xl font-black text-[#0A3D62] tracking-tighter">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-[#0A3D62] tracking-tighter leading-tight">
             PRODUCT GALLERY
           </h2>
         </div>
 
         {/* Premium Tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-gray-100 rounded-3xl p-1.5 shadow-inner">
-            {['products', 'factory'].map((tab) => (
+        <div className="flex justify-center mb-8 sm:mb-12">
+          <div className="inline-flex bg-gray-100 rounded-2xl sm:rounded-3xl p-1.5 shadow-inner">
+            {[
+              { key: 'products', label: '🛍️ Products' },
+              { key: 'factory', label: '🏭 Factory' }
+            ].map((tab) => (
               <motion.button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-10 py-4 text-lg font-semibold rounded-3xl transition-all duration-300 ${
-                  activeTab === tab 
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`px-6 sm:px-10 py-3 sm:py-4 text-sm sm:text-lg font-semibold rounded-2xl sm:rounded-3xl transition-all duration-300 ${
+                  activeTab === tab.key 
                     ? 'bg-white shadow text-[#0A3D62]' 
                     : 'text-gray-500 hover:text-gray-700'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                {tab === 'products' ? '🛍️ Products' : '🏭 Factory Insight'}
+                {tab.label}
               </motion.button>
             ))}
           </div>
@@ -130,7 +133,7 @@ export default function Products() {
           key={activeTab} 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
         >
           {currentImages.map((item, index) => (
             <motion.div

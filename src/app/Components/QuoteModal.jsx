@@ -1,10 +1,11 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { X, Send, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
 
 export default function QuoteModal({ isOpen, onClose }) {
+  const shouldReduceMotion = useReducedMotion();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -47,23 +48,23 @@ export default function QuoteModal({ isOpen, onClose }) {
   };
 
   const inputStyle =
-    "w-full border-b border-gray-300 pb-3 outline-none text-lg text-black placeholder:text-black focus:border-[#00C853] transition bg-white";
+    "w-full border-b border-gray-300 pb-3 outline-none text-base sm:text-lg text-black placeholder:text-black focus:border-[#00C853] transition bg-white";
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-6 bg-black/80">
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80">
           <motion.div
-            initial={{ opacity: 0, scale: 0.88, y: 40 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.88, y: 40 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 28 }}
-            className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full overflow-hidden"
+            initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.88, y: 40 }}
+            animate={shouldReduceMotion ? {} : { opacity: 1, scale: 1, y: 0 }}
+            exit={shouldReduceMotion ? {} : { opacity: 0, scale: 0.88, y: 40 }}
+            transition={shouldReduceMotion ? {} : { type: 'spring', stiffness: 300, damping: 28 }}
+            className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl max-w-2xl w-full overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-[#0A3D62] px-8 py-6 text-white flex items-center justify-between">
+            <div className="bg-[#0A3D62] px-6 sm:px-8 py-4 sm:py-6 text-white flex items-center justify-between">
               <div>
-                <h3 className="text-3xl font-black tracking-tighter">
+                <h3 className="text-2xl sm:text-3xl font-black tracking-tighter">
                   GET INSTANT QUOTE
                 </h3>
                 <p className="text-[#00C853] text-sm mt-1">
@@ -75,14 +76,14 @@ export default function QuoteModal({ isOpen, onClose }) {
                 onClick={onClose}
                 className="text-white/70 hover:text-white"
               >
-                <X size={28} />
+                <X size={24} />
               </button>
             </div>
 
-            <div className="p-8 lg:p-12 text-gray-900">
+            <div className="p-6 sm:p-8 text-gray-900">
               {!success ? (
-                <form onSubmit={handleSubmit} className="space-y-7">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                     <input
                       type="text"
                       name="name"
@@ -163,7 +164,7 @@ export default function QuoteModal({ isOpen, onClose }) {
                     disabled={isSubmitting}
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    className="w-full bg-[#00C853] hover:bg-[#00A43E] py-5 rounded-2xl text-white font-semibold text-xl flex items-center justify-center gap-3 disabled:opacity-70"
+                    className="w-full bg-[#00C853] hover:bg-[#00A43E] py-4 sm:py-5 rounded-2xl text-white font-semibold text-lg sm:text-xl flex items-center justify-center gap-3 disabled:opacity-70"
                   >
                     {isSubmitting
                       ? 'SENDING QUOTE REQUEST...'

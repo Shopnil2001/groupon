@@ -72,29 +72,29 @@ export default function Capabilities() {
   ];
 
   return (
-    <section id="capabilities" className="relative py-24 bg-[#f8fafd] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="capabilities" className="relative py-16 sm:py-20 lg:py-24 bg-[#f8fafd] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 sm:mb-16">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-6 py-2 bg-[#00C853]/10 text-[#00C853] text-sm font-semibold tracking-widest rounded-full mb-4"
+            className="inline-block px-4 sm:px-6 py-2 bg-[#00C853]/10 text-[#00C853] text-sm font-semibold tracking-widest rounded-full mb-4"
           >
             PRODUCTION POWER
           </motion.span>
-          <h2 className="text-6xl md:text-7xl font-black text-[#0A3D62] tracking-tighter">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-[#0A3D62] tracking-tighter leading-tight">
             FACTORY CAPABILITIES
           </h2>
-          <p className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-4 text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             State-of-the-art machinery delivering unmatched daily capacity with 100% commitment to quality
           </p>
         </div>
 
         {/* Interactive Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {machines.map((machine, index) => {
             const Icon = machine.icon;
             return (
@@ -109,15 +109,15 @@ export default function Capabilities() {
                   scale: 1.04,
                   transition: { type: "spring", stiffness: 400, damping: 18 }
                 }}
-                className="group bg-white rounded-3xl p-8 border border-gray-100 hover:border-[#00C853] shadow-sm hover:shadow-2xl relative overflow-hidden flex flex-col"
+                className="group bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-100 hover:border-[#00C853] shadow-sm hover:shadow-2xl relative overflow-hidden flex flex-col"
               >
                 {/* Icon Container */}
-                <div className="flex justify-between items-start mb-8">
+                <div className="flex justify-between items-start mb-6 sm:mb-8">
                   <motion.div
                     whileHover={{ rotate: 12, scale: 1.15 }}
-                    className="w-16 h-16 bg-[#00C853]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#00C853] transition-all duration-500"
+                    className="w-12 h-12 sm:w-16 sm:h-16 bg-[#00C853]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#00C853] transition-all duration-500"
                   >
-                    <Icon className="w-9 h-9 text-[#00C853] group-hover:text-white transition-colors" />
+                    <Icon className="w-7 h-7 sm:w-9 sm:h-9 text-[#00C853] group-hover:text-white transition-colors" />
                   </motion.div>
                   
                   {/* Capacity Number - Big & Animated */}
@@ -126,7 +126,7 @@ export default function Capabilities() {
                       initial={{ scale: 0.6 }}
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
-                      className="text-5xl font-black text-[#0A3D62] tracking-tighter group-hover:text-[#00C853] transition-colors"
+                      className="text-4xl sm:text-5xl font-black text-[#0A3D62] tracking-tighter group-hover:text-[#00C853] transition-colors"
                     >
                       {machine.capacity}
                     </motion.div>
@@ -137,7 +137,7 @@ export default function Capabilities() {
                 </div>
 
                 {/* Machine Name */}
-                <h3 className="text-2xl font-semibold text-[#0A3D62] mb-2 group-hover:text-[#00C853] transition-colors">
+                <h3 className="text-lg sm:text-2xl font-semibold text-[#0A3D62] mb-2 group-hover:text-[#00C853] transition-colors">
                   {machine.name}
                 </h3>
 
@@ -147,7 +147,7 @@ export default function Capabilities() {
                 </div>
 
                 {/* Animated Bottom Bar */}
-                <div className="h-1.5 bg-gradient-to-r from-[#00C853] to-transparent w-0 group-hover:w-full mt-8 transition-all duration-700 rounded-full" />
+                <div className="h-1.5 bg-gradient-to-r from-[#00C853] to-transparent w-0 group-hover:w-full mt-6 sm:mt-8 transition-all duration-700 rounded-full" />
                 
                 {/* Subtle hover shine */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
@@ -161,15 +161,15 @@ export default function Capabilities() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-16 text-center text-sm text-gray-500 flex items-center justify-center gap-8 flex-wrap"
+          className="mt-12 sm:mt-16 text-center text-sm text-gray-500 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 flex-wrap px-4"
         >
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-[#00C853] rounded-full animate-pulse" /> 
             100% In-House Production
           </div>
-          <div>•</div>
+          <div className="hidden sm:block">•</div>
           <div>Daily Output: Over 70,000+ units</div>
-          <div>•</div>
+          <div className="hidden sm:block">•</div>
           <div>Modern Chinese & Local Machinery</div>
         </motion.div>
       </div>

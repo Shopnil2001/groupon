@@ -60,42 +60,42 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative py-24 bg-[#0A3D62] overflow-hidden text-white">
+    <section id="contact" className="relative py-16 sm:py-20 lg:py-24 bg-[#0A3D62] overflow-hidden text-white">
       {/* Background accent blobs */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
-          className="absolute top-20 left-10 w-96 h-96 bg-[#00C853] rounded-full blur-[120px] opacity-10"
+          className="absolute top-16 sm:top-20 left-6 sm:left-10 w-72 sm:w-96 h-72 sm:h-96 bg-[#00C853] rounded-full blur-[100px] sm:blur-[120px] opacity-10"
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 15, repeat: Infinity }}
         />
         <motion.div
-          className="absolute bottom-32 right-20 w-80 h-80 bg-white rounded-full blur-[100px] opacity-5"
+          className="absolute bottom-24 sm:bottom-32 right-12 sm:right-20 w-64 sm:w-80 h-64 sm:h-80 bg-white rounded-full blur-[80px] sm:blur-[100px] opacity-5"
           animate={{ scale: [1.1, 0.9, 1.1] }}
           transition={{ duration: 18, repeat: Infinity }}
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
           
           {/* LEFT COLUMN - CONTACT INFO + MAPS */}
-          <div className="lg:col-span-5 space-y-12">
+          <div className="lg:col-span-5 space-y-8 sm:space-y-12">
             <div>
               <motion.span
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-[#00C853] font-semibold tracking-[4px] text-sm"
+                className="text-[#00C853] font-semibold tracking-[3px] sm:tracking-[4px] text-sm"
               >
                 GET IN TOUCH
               </motion.span>
-              <h2 className="text-6xl md:text-7xl font-black tracking-tighter mt-3">
-                LET'S GROW<br />TOGETHER
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter mt-2 sm:mt-3 leading-tight">
+                LET'S GROW<br className="hidden sm:block" />TOGETHER
               </h2>
             </div>
 
             {/* Interactive Contact Cards */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {contactCards.map((card, index) => {
                 const Icon = card.icon;
                 return (
@@ -107,14 +107,14 @@ export default function Contact() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.03, y: -6 }}
-                    className="group flex items-center gap-6 bg-white/5 hover:bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-7 transition-all duration-500"
+                    className="group flex items-center gap-4 sm:gap-6 bg-white/5 hover:bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-7 transition-all duration-500"
                   >
-                    <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center group-hover:bg-[#00C853] transition-all">
-                      <Icon className="w-8 h-8 text-white group-hover:text-[#0A3D62]" />
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-white/10 flex items-center justify-center group-hover:bg-[#00C853] transition-all">
+                      <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white group-hover:text-[#0A3D62]" />
                     </div>
                     <div>
                       <p className="text-sm text-white/60">{card.title}</p>
-                      <p className="text-xl font-medium tracking-tight">{card.value}</p>
+                      <p className="text-lg sm:text-xl font-medium tracking-tight">{card.value}</p>
                     </div>
                   </motion.a>
                 );
@@ -126,13 +126,13 @@ export default function Contact() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8"
+              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8"
             >
               <div className="flex items-center gap-3 mb-4">
                 <MapPin className="text-[#00C853]" />
                 <p className="font-semibold">Office Address</p>
               </div>
-              <p className="text-lg leading-relaxed">
+              <p className="text-base sm:text-lg leading-relaxed">
                 H-11, R-8, Block-A,<br />
                 Mirpur-1, Dhaka-1216
               </p>
@@ -141,9 +141,9 @@ export default function Contact() {
 
           {/* RIGHT COLUMN - FORM + MAPS */}
           <div className="lg:col-span-7">
-            <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-10 lg:p-14 shadow-2xl">
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 xl:p-14 shadow-2xl">
+              <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <motion.div whileFocus={{ scale: 1.02 }}>
                     <input
                       type="text"
@@ -152,7 +152,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="Your Full Name"
-                      className="w-full bg-transparent border-b border-white/40 py-4 text-lg placeholder:text-white/50 focus:border-[#00C853] outline-none transition-all"
+                      className="w-full bg-transparent border-b border-white/40 py-3 sm:py-4 text-base sm:text-lg placeholder:text-white/50 focus:border-[#00C853] outline-none transition-all"
                     />
                   </motion.div>
                   <motion.div whileFocus={{ scale: 1.02 }}>
@@ -163,7 +163,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="Business Email"
-                      className="w-full bg-transparent border-b border-white/40 py-4 text-lg placeholder:text-white/50 focus:border-[#00C853] outline-none transition-all"
+                      className="w-full bg-transparent border-b border-white/40 py-3 sm:py-4 text-base sm:text-lg placeholder:text-white/50 focus:border-[#00C853] outline-none transition-all"
                     />
                   </motion.div>
                 </div>
@@ -175,7 +175,7 @@ export default function Contact() {
                     value={formData.company}
                     onChange={handleChange}
                     placeholder="Company Name (Optional)"
-                    className="w-full bg-transparent border-b border-white/40 py-4 text-lg placeholder:text-white/50 focus:border-[#00C853] outline-none transition-all"
+                    className="w-full bg-transparent border-b border-white/40 py-3 sm:py-4 text-base sm:text-lg placeholder:text-white/50 focus:border-[#00C853] outline-none transition-all"
                   />
                 </motion.div>
 
