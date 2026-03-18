@@ -81,7 +81,7 @@ export default function Capabilities() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-4 sm:px-6 py-2 bg-[#00C853]/10 text-[#00C853] text-sm font-semibold tracking-widest rounded-full mb-4"
+            className="inline-block px-6 py-2 bg-[#00C853]/10 text-[#00C853] text-sm font-semibold tracking-widest rounded-full mb-4"
           >
             PRODUCTION POWER
           </motion.span>
@@ -93,7 +93,7 @@ export default function Capabilities() {
           </p>
         </div>
 
-        {/* Interactive Grid */}
+        {/* 3D Keyboard-Key Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {machines.map((machine, index) => {
             const Icon = machine.icon;
@@ -104,23 +104,24 @@ export default function Capabilities() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.07 }}
-                whileHover={{
-                  y: -16,
-                  scale: 1.04,
-                  transition: { type: "spring", stiffness: 400, damping: 18 }
-                }}
-                className="group bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-100 hover:border-[#00C853] shadow-sm hover:shadow-2xl relative overflow-hidden flex flex-col"
+                whileHover={{ y: -14, scale: 1.04 }}
+                className="group relative bg-white/90 backdrop-blur-3xl border border-white/40 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden flex flex-col"
               >
-                {/* Icon Container */}
-                <div className="flex justify-between items-start mb-6 sm:mb-8">
+                {/* === KEYBOARD SKEWMORPHISM TEXTURE === */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/35 via-transparent to-black/10 rounded-3xl" />
+                <div className="absolute inset-0 shadow-[inset_0_12px_30px_rgba(0,0,0,0.35),inset_0_-8px_20px_rgba(255,255,255,0.25)] rounded-3xl" />
+                <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-white/55 to-transparent rounded-t-3xl" />
+                <div className="absolute inset-x-6 top-8 h-px bg-white/50" />
+
+                {/* Icon + Capacity */}
+                <div className="flex justify-between items-start mb-6 relative z-10">
                   <motion.div
                     whileHover={{ rotate: 12, scale: 1.15 }}
-                    className="w-12 h-12 sm:w-16 sm:h-16 bg-[#00C853]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#00C853] transition-all duration-500"
+                    className="w-14 h-14 sm:w-16 sm:h-16 bg-[#00C853]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#00C853] transition-all duration-500"
                   >
-                    <Icon className="w-7 h-7 sm:w-9 sm:h-9 text-[#00C853] group-hover:text-white transition-colors" />
+                    <Icon className="w-8 h-8 sm:w-9 sm:h-9 text-[#00C853] group-hover:text-white transition-colors" />
                   </motion.div>
-                  
-                  {/* Capacity Number - Big & Animated */}
+
                   <div className="text-right">
                     <motion.div
                       initial={{ scale: 0.6 }}
@@ -137,20 +138,17 @@ export default function Capabilities() {
                 </div>
 
                 {/* Machine Name */}
-                <h3 className="text-lg sm:text-2xl font-semibold text-[#0A3D62] mb-2 group-hover:text-[#00C853] transition-colors">
+                <h3 className="text-lg sm:text-2xl font-semibold text-[#0A3D62] mb-2 group-hover:text-[#00C853] transition-colors relative z-10">
                   {machine.name}
                 </h3>
 
                 {/* Machines Count */}
-                <div className="text-sm font-medium text-gray-500 mb-auto">
+                <div className="text-sm font-medium text-gray-500 mb-auto relative z-10">
                   {machine.machines} Machines
                 </div>
 
-                {/* Animated Bottom Bar */}
-                <div className="h-1.5 bg-gradient-to-r from-[#00C853] to-transparent w-0 group-hover:w-full mt-6 sm:mt-8 transition-all duration-700 rounded-full" />
-                
-                {/* Subtle hover shine */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                {/* Bottom Glow Bar */}
+                <div className="h-1.5 bg-gradient-to-r from-[#00C853] to-transparent w-0 group-hover:w-full mt-6 transition-all duration-700 rounded-full relative z-10" />
               </motion.div>
             );
           })}
