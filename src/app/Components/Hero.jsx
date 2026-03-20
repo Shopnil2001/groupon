@@ -92,7 +92,7 @@ export default function Hero({ setQuoteOpen }) {
         <div className="fixed inset-0 z-[200] bg-black flex items-center justify-center overflow-hidden">
           <video
             ref={videoRef}
-            src="/intro.mp4"
+            src="/intro.webm"
             autoPlay
             muted
             playsInline
